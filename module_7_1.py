@@ -21,6 +21,7 @@ class Shop:
 
     def add(self, *products):
         product_file = open(self.__file_name, 'a+')
+        product_file.seek(0)
         existing_products = product_file.read()
         for product in products:
             product_str = str(product)
