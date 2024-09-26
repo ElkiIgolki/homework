@@ -17,8 +17,9 @@ class Shop:
 
     def get_products(self):
         tovar = open(self.__file_name, 'r')
-        products = pprint(tovar.read())
+        products = tovar.read()
         tovar.close()
+        pprint(products)
         return products
 
     def add(self, *products):
@@ -27,7 +28,7 @@ class Shop:
         existing_products = product_file.read()
         for product in products:
             if str(product) not in existing_products:
-                file.write(str(product) + '\n')
+                product_file.write(str(product) + '\n'
                 existing_products += str(product) + '\n'
                 print(f'{product} добавлен в магазин')
             else:
